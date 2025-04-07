@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase/home_page.dart';
 import 'package:flutter_firebase/signup_page.dart';
 import 'firebase_options.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart'; // Import dotenv
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // ✅ Add this line
+  await dotenv.load(); // Load the .env file
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
